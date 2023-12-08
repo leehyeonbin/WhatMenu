@@ -1,4 +1,4 @@
-name: scrapper bot
+name: scrapper bot ci
 
 on:
   push:
