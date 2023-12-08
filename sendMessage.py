@@ -1,11 +1,12 @@
 from venv import logger
 import secrets
 import requests
+import os
 
 
 def sendMessage():
     try:
-        url = secrets.PERSNAL_SLACK
+        slack_url = os.environ.get('PRESNAL_SLACK')
         header = {'Content-type': 'application/json'}
         icon_emoji = ":slack:"
         username = "WhatMenu"
@@ -18,7 +19,7 @@ def sendMessage():
         print(data)
 
         # 메세지 전송
-        return requests.post(url, headers=header, json=data)
+        return requests.post(slack_url, headers=header, json=data)
         
     except Exception as e:
         logger.error("Slack Message 전송에 실패했습니다.")
