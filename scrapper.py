@@ -5,15 +5,20 @@ from selenium.webdriver.chrome.options import Options
 from selenium import webdriver
 
 def scrapper():
-    chrome_options = Options()
+    chrome_options = webdriver.ChromeOptions()
     chrome_options.add_experimental_option("detach", True)
 
     # 불필요한 에러 메시지 없애기
     chrome_options.add_experimental_option("excludeSwitches", ["enable-logging"])
 
+    chrome_options.add_argument('--headless')
+    chrome_options.add_argument('--no-sandbox')
+    chrome_options.add_argument('--disable-dev-shm-usage')
+
     # 브라우저 생성
     driver = webdriver.Chrome(options=chrome_options)
     driver.implicitly_wait(3)
+    
     driver.get("https://hubkitchen.startup-plus.kr/cms_for_bcb/process/notice/list.do?nowPage=1&show_no=2120&check_no=2106&c_maker=1&board_no=2120&c_relation=36&c_relation2=23&s_target=&s_text=")
     
     html = driver.page_source
