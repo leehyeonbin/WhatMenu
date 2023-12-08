@@ -21,10 +21,11 @@ jobs:
             python -m pip install --upgrade pip
             pip install -r ./libraries.txt
 
-      - name: Generate Secret
-        uses: actions/checkout@v3
+      - name: access to secrets
+        run: |
+          echo "PERSNAL_SLACK=$PERSNAL_SLACK" >> .env
         env:
-          PERSNAL_SLACK: ${{ secrets.PERSNAL_SLACK }}
+          PERSNAL_SLACK: ${{secrets.PERSNAL_SLACK}}
 
       - name: Run webhook
         run: python ./main.py
