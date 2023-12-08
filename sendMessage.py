@@ -1,4 +1,5 @@
 from venv import logger
+import secrets
 import requests
 
 
@@ -21,6 +22,6 @@ def sendMessage():
         
     except Exception as e:
         logger.error("Slack Message 전송에 실패했습니다.")
-        logger.error("에러 내용 : " + e)
+        logger.error("에러 내용 : " + e.__cause__)
 
         exit(0)
