@@ -4,7 +4,7 @@ import requests
 
 def sendMessage():
     try:
-        url = {{ secrets.PERSNAL_SLACK}}
+        url = secrets.PERSNAL_SLACK
         header = {'Content-type': 'application/json'}
         icon_emoji = ":slack:"
         username = "WhatMenu"
