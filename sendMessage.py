@@ -23,6 +23,6 @@ def sendMessage():
         
     except Exception as e:
         logger.error("Slack Message 전송에 실패했습니다.")
-        logger.error("에러 내용 : " + e.__cause__)
+        logger.error("에러 내용 : " + e.__str__)
 
         exit(0)
