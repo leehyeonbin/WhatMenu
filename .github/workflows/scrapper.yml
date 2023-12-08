@@ -8,7 +8,7 @@ jobs:
   send:
     run-on: ubuntu-20.04
 
-    steps: 
+    steps:
       - uses: actions/checkout@v2
       - name: Set up Python
         uses: action/setup-python@4
