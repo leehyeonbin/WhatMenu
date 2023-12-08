@@ -22,7 +22,7 @@ jobs:
             pip install -r ./libraries.txt
 
       - name: Generate Secret
-        uses: actions/env@5
+        uses: actions/checkout@v3
         env:
           PERSNAL_SLACK: ${{ secrets.PERSNAL_SLACK }}
 
