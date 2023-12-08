@@ -21,5 +21,10 @@ jobs:
             python -m pip install --upgrade pip
             pip install -r ./libraries.txt
 
+      - name: Generate Secret
+        uses: actions/env@5
+        env:
+          PERSNAL_SLACK: ${{ secrets.PERSNAL_SLACK }}
+
       - name: Run webhook
         run: python ./main.py

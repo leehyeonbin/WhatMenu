@@ -3,6 +3,7 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.chrome.options import Options
 from selenium import webdriver
+from sendMessage import sendMessage
 
 def scrapper():
     chrome_options = webdriver.ChromeOptions()
@@ -25,6 +26,7 @@ def scrapper():
     soup = bs(html, "html.parser")
 
     elements = soup.select('tbody > tr > td > a')
+    sendMessage()
 
     for index, element in enumerate(elements, 1):
         print("{} 번째 공지사항 제목: {}, link: https://hubkitchen.startup-plus.kr/cms_for_bcb/process/notice/{}".format(index, element.text, element.attrs['href']))
