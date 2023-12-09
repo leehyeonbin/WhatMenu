@@ -1,12 +1,14 @@
 from venv import logger
-import secrets
+from dotenv import load_dotenv
 import requests
 import os
 
 
 def sendMessage():
     try:
+        load_dotenv()
         slack_url = os.environ.get('PRESNAL_SLACK')
+        print(slack_url)
         header = {'Content-type': 'application/json'}
         icon_emoji = ":slack:"
         username = "WhatMenu"
