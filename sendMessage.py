@@ -3,11 +3,10 @@ from dotenv import load_dotenv
 import requests
 import os
 
-
-def sendMessage():
+def sendMessage(data):
     try:
         load_dotenv()
-        slack_url = os.environ.get('PRESNAL_SLACK')
+        slack_url = os.getenv('PRESNAL_SLACK')
         print(slack_url)
         header = {'Content-type': 'application/json'}
         icon_emoji = ":slack:"
