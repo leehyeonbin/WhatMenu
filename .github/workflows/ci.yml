@@ -23,7 +23,7 @@ jobs:
 
       - name: access to secrets
         run: |
-          echo PERSNAL_SLACK=${{secrets.PERSNAL_SLACK}} >> .env
+          echo PERSONAL_SLACK=${{secrets.PERSONAL_SLACK}} >> .env
 
       - name: Run webhook
         run: python ./main.py
