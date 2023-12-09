@@ -3,7 +3,7 @@ from dotenv import load_dotenv
 import requests
 import os
 
-def sendMessage(data):
+def sendMessage():
     try:
         load_dotenv()
         slack_url = os.getenv('PERSONAL_SLACK')
