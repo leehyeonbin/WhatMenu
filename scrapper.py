@@ -3,6 +3,7 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.chrome.options import Options
 from selenium import webdriver
+from is_today import is_today
 from send_message import send_message
 
 def scrapper():
@@ -31,15 +32,17 @@ def scrapper():
         print("{} 번째 공지사항 제목: {}, link: https://hubkitchen.startup-plus.kr/cms_for_bcb/process/notice/{}".format(index, element.text, element.attrs['href']))
     
     dateList = soup.select('.list-right')
-    # for element in filter(element.text.strip() == "2023-12-08", dateList):
-    #     print("{}".format(element.text))
-    for index, element in enumerate(dateList, 1):
-        print("{}".format(element.text.strip()))
+
+    for element in dateList:
+        if is_today(element.text.strip()):
+            print(element.text.strip())
+
     driver.find_element('xpath', '/html/body/div/div[1]/div/div/div/div[2]/div/div/div[2]/div[1]/table/tbody/tr[1]/td[2]/a').click()
     driver.implicitly_wait(2)
 
     title = driver.find_element('xpath', '/html/body/div/div[1]/div/div/div/div[2]/div/div/div/div/div[1]/h2').text
     content = driver.find_element('xpath', '/html/body/div/div[1]/div/div/div/div[2]/div/div/div/div/div[1]/div[2]/p/img').get_attribute('src')
+
     print(title)
     print(content)
 
