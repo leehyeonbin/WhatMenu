@@ -6,7 +6,7 @@ import os
 def sendMessage(data):
     try:
         load_dotenv()
-        slack_url = os.getenv('PRESNAL_SLACK')
+        slack_url = os.getenv('PERSONAL_SLACK')
         print(slack_url)
         header = {'Content-type': 'application/json'}
         icon_emoji = ":slack:"
