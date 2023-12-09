@@ -26,7 +26,17 @@ def scrapper():
     soup = bs(html, "html.parser")
 
     elements = soup.select('tbody > tr > td > a')
-    sendMessage()
 
     for index, element in enumerate(elements, 1):
         print("{} 번째 공지사항 제목: {}, link: https://hubkitchen.startup-plus.kr/cms_for_bcb/process/notice/{}".format(index, element.text, element.attrs['href']))
+    
+    
+    driver.find_element('xpath', '/html/body/div/div[1]/div/div/div/div[2]/div/div/div[2]/div[1]/table/tbody/tr[1]/td[2]/a').click()
+    driver.implicitly_wait(2)
+
+    title = driver.find_element('xpath', '/html/body/div/div[1]/div/div/div/div[2]/div/div/div/div/div[1]/h2').text
+    content = driver.find_element('xpath', '/html/body/div/div[1]/div/div/div/div[2]/div/div/div/div/div[1]/div[2]/p/img').get_attribute('src')
+    print(title)
+    print(content)
+
+    sendMessage(title, content)
