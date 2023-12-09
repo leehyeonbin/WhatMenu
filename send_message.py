@@ -20,13 +20,13 @@ def send_message(posts: [Post]):
                 "image_url": posts[index].content,
                 "actions": [
                     {
-                        "name": "before",
+                        "action_id": "action_id",
                         "text": "이전으로",
                         "type": "button",
                         "value": "before"
                     },
                     {
-                        "name": "next",
+                        "action_id": "next",
                         "text": "다음으로",
                         "type": "button",
                         "value": "next"
@@ -50,7 +50,7 @@ def send_message(posts: [Post]):
         try:
             attachments = [{
                 "color": "good",
-                "text": "오늘은 공지가 없네요"                
+                "text": "오늘은 공지가 없네요"
             }]
 
             data = {"username": username, "attachments": attachments, "icon_emoji": icon_emoji}
