@@ -18,20 +18,20 @@ def send_message(posts: [Post]):
                 "color": "good",
                 "author_name": posts[index].title,
                 "image_url": posts[index].content,
-                "actions": [
-                    {
-                        "action_id": "action_id",
-                        "text": "이전으로",
-                        "type": "button",
-                        "value": "before"
-                    },
-                    {
-                        "action_id": "next",
-                        "text": "다음으로",
-                        "type": "button",
-                        "value": "next"
-                    },
-                ]
+                # "actions": [
+                #     {
+                #         "action_id": "action_id",
+                #         "text": "이전으로",
+                #         "type": "button",
+                #         "value": "before"
+                #     },
+                #     {
+                #         "action_id": "next",
+                #         "text": "다음으로",
+                #         "type": "button",
+                #         "value": "next"
+                #     },
+                # ]
             }]
 
             data = {"username": username, "attachments": attachments, "icon_emoji": icon_emoji}
