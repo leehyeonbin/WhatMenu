@@ -11,7 +11,7 @@ def send_message(posts: [Post]):
     slack_url = os.getenv('PERSONAL_SLACK')
     header = {'Content-type': 'application/json'}
     icon_emoji = ":rice:"
-    username = "WhatMenu"
+    username = "Menu"
     if(len(posts) > 0): 
         try:
             attachments = [{
