@@ -2,7 +2,7 @@ name: scrapper bot
 
 on:
   schedule:
-    - cron: '50 2 0 * 1'
+    - cron: '50 2 * * 1'
 
 jobs:
   send:
